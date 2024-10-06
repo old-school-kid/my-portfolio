@@ -40,7 +40,7 @@
         <a href="open_source.html" data-w-id="6319b1b0-1a2d-1e6a-59ef-e98ea48f1fb3" class="nav-link hk w-nav-link">Open Source</a>
         <a href="publications.html" data-w-id="6319b1b0-1a2d-1e6a-59ef-e98ea48f1fb3" class="nav-link hk w-nav-link">Publications</a>
         <a href="about.html" data-w-id="c5340113-8059-9e2d-28e1-285112c78e43" class="nav-link hk w-nav-link">About</a>
-        <a href="https://drive.google.com/file/d/1f1lhUT35yf1caUvZo8KGKP8Sfgq8cNo4/view?usp=sharing" target="_blank" class="nav-link hk w-nav-link">Resume</a>
+        <a href="https://drive.google.com/file/d/1hh5d6tqqwCYjKzD0nX2Gddho7diRF1h3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="nav-link hk w-nav-link">Resume</a>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mishrasp393@gmail.com" target="_blank" rel="noopener noreferrer" class="nav-link hk sayhello w-nav-link">Say Hello!</a>
         <!-- <a href="personal_about.html" data-w-id="6319b1b0-1a2d-1e6a-59ef-e98ea48f1fb3" class="nav-link hk w-nav-link">Know More</a></nav> -->
       <div class="menu-button w-nav-button">
@@ -83,11 +83,112 @@
             <p class="paragraph-19">Email me at <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mishrasp393@gmail.com" target="_blank" rel="noopener noreferrer"><span class="text-span-2">mishrasp393@gmail.com</span></a></p>
             <p class="paragraph-20">If you want to talk about advancements in Robotics or Agatha Crhistie is the best fiction author ever or about Big Bang Theory, sitcom and theory both, or the uncanny similarity between sci-fi and rom-com or Real Madrid is the best football club in history, I am already listening...</p>
           </div>
-          <div id="w-node-5b4533b1ead4-27b97e1d" data-w-id="a6bbc1bb-db56-40e7-9616-5b4533b1ead4" style="opacity:0" class="div-block-39"><a href="https://www.linkedin.com/in/surya-prakash-mishra/" target="_blank" class="link">LinkedIn</a><a href="https://github.com/old-school-kid" target="_blank" class="link">Github</a><a href="https://twitter.com/SuryaIsAllUNeed/" target="_blank" class="link">Twitter</a></div>
+          <div id="w-node-5b4533b1ead4-27b97e1d" data-w-id="a6bbc1bb-db56-40e7-9616-5b4533b1ead4" style="opacity:0" class="div-block-39"><a href="https://www.linkedin.com/in/surya-prakash-mishra/" target="_blank" class="link">LinkedIn</a><a href="https://github.com/old-school-kid" target="_blank" class="link">Github</a><a href="https://twitter.com/SuryaIsAllUNeed/" target="_blank" class="link">Twitter</a><a href="https://scholar.google.com/citations?hl=en&user=tneg7L0AAAAJ/" target="_blank" class="link">Google Scholar</a></div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Testimonial Ribbon Section -->
+  <div class="testimonial-section">
+    <div class="testimonial-container">
+      <div class="testimonial active">
+        <img src="https://media.licdn.com/dms/image/v2/C5603AQG3SuZKGMZ3AA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1589260936315?e=1733961600&v=beta&t=aL4Wr0VRJ7uMl29TMDgrlIgHr-FkOnFE8QaGcCVInT4" alt="Testimonial Person 1">
+        <p>"Surya is a quick learner, demonstrates strong skills in computer vision and ML algorithm development, and is a helpful and friendly collaborator."<br><a href="https://www.linkedin.com/in/rahul-m-r-545b321a9/" target="_blank" rel="noopener noreferrer"><span>- Dr Rahul MR</span></a></p>
+      </div>
+      <div class="testimonial">
+        <img src="https://media.licdn.com/dms/image/v2/C5103AQF6wA1RWw5nTA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1583680015282?e=1733961600&v=beta&t=P3s2JoGfJGUixYwlheJSXdM16zXqPB1aQbcArhLPVxs" alt="Testimonial Person 2">
+        <p>"Surya possesses exceptional coding skills, adapts quickly to new environments, brings a positive energy that makes collaboration enjoyable and the ability to tackle any challenge that arises."<br><a href="https://www.linkedin.com/in/aditeh/" target="_blank" rel="noopener noreferrer"><span>- Aditi Thakur</span></a></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const testimonials = document.querySelectorAll('.testimonial');
+  let currentTestimonial = 0;
+
+  function calculateDisplayTime(text) {
+    const wordCount = text.split(' ').length;
+    const timePerTwoWords = Math.ceil(wordCount / 3); // 1 second per 2 words
+    return Math.max(timePerTwoWords, 5) * 1000; // Minimum 5 seconds (5000 ms)
+  }
+
+  function showNextTestimonial() {
+    testimonials[currentTestimonial].classList.remove('active');
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    testimonials[currentTestimonial].classList.add('active');
+
+    const textContent = testimonials[currentTestimonial].querySelector('p').innerText;
+    const displayTime = calculateDisplayTime(textContent);
+    
+    clearInterval(intervalId); // Clear the existing interval
+    intervalId = setInterval(showNextTestimonial, displayTime); // Set new interval based on calculated time
+  }
+
+  let intervalId = setInterval(showNextTestimonial, calculateDisplayTime(testimonials[currentTestimonial].querySelector('p').innerText));
+</script>
+
+<style>
+    .testimonial-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+      padding-top:80px;
+      background-color: #171717;
+      overflow: hidden;
+      height: 200px; /* Ensure a fixed height so container does not shrink */
+    }
+
+    .testimonial-container {
+      position: relative; /* Important to position testimonials relative to the container */
+      width: 100%;
+      max-width: 800px; /* Optional: Set a max width for the container */
+    }
+
+    .testimonial {
+      position: absolute; /* Ensure testimonials overlap */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: flex-start; /* Align content to the left */
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out; /* Smooth fade-in/out */
+      padding-left: 20px; /* Optional: Add padding for better spacing */
+    }
+
+    .testimonial.active {
+      opacity: 1;
+      transition: opacity 1s ease-in-out; /* Adjust fade-in transition */
+    }
+
+    .testimonial img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .testimonial p {
+      font-size: 18px;
+      color: hsla(0, 0%, 100%, 0.8);
+      text-align: left; /* Left align the text */
+    }
+
+    .testimonial span {
+      font-weight: bold;
+      display: block;
+      font-size: 18px;
+      color: #f0d575;
+      text-decoration: underline;
+    }
+</style>
+
+  
+
   <div data-w-id="b986f4fc-b093-a801-d0b4-ab25e01e510f" style="opacity:0">
     <div>
       <div class="div-block-40"></div>
@@ -97,7 +198,7 @@
             <a href="open_source.html" data-w-id="f1f30c75-a927-9ef3-7e7e-253c82cbcdbb" class="nav-link hk w-nav-link">Open Source</a>
             <a href="publications.html" data-w-id="6319b1b0-1a2d-1e6a-59ef-e98ea48f1fb3" class="nav-link hk w-nav-link">Publications</a>
             <a href="about.html" data-w-id="6b718666-991b-9fa6-752b-7b0f73e7afaf" class="nav-link hk w-nav-link">About</a>
-            <a href="https://drive.google.com/file/d/1f1lhUT35yf1caUvZo8KGKP8Sfgq8cNo4/view?usp=sharing" target="_blank" class="nav-link hk w-nav-link">Resume</a>
+            <a href="https://drive.google.com/file/d/1hh5d6tqqwCYjKzD0nX2Gddho7diRF1h3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="nav-link hk w-nav-link">Resume</a>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mishrasp393@gmail.com" target="_blank" rel="noopener noreferrer" class="nav-link hk sayhello w-nav-link">Say Hello!</a>
             <!-- <a href="personal_about.html" data-w-id="6319b1b0-1a2d-1e6a-59ef-e98ea48f1fb3" class="nav-link hk w-nav-link">Know More</a></nav> -->
         </div>
